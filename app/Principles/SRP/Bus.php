@@ -9,9 +9,8 @@ class Bus
     private int $numberOfPassengers;
     private string $color;
     private int $maxmumSpeed;
-
     private int $doors;
-    private Route $route;
+    private array $routes;
     private Driver $driver;
     
 
@@ -21,7 +20,7 @@ class Bus
         string $color,
         string $maxmumSpeed,
         int $doors,
-        Route $route,
+        array $routes,
         Driver $driver
     ) {
         $this->busNumber = $busNumber;
@@ -29,7 +28,7 @@ class Bus
         $this->color = $color;
         $this->maxmumSpeed = $maxmumSpeed;
         $this->doors = $doors;
-        $this->route = $route;
+        $this->routes = $routes;
         $this->driver = $driver;
     }
 
@@ -73,9 +72,9 @@ class Bus
         return $this->driver;
     }
 
-    public function getRoute(): Route
+    public function getRoutes(): array
     {
-        return $this->route;
+        return $this->routes;
     }
 
     public function setDriver(Driver $driver): void
@@ -105,21 +104,39 @@ class Bus
         $this->doors = $doors;
     }
 
-    public function setRoute(Route $route): void
+    public function addRoute(Route $route): void
     {
-        $this->route = $route;
+        $this->routes[] = $route;
+    }
+
+    public function setRoutes(array $routes): void
+    {
+        $this->routes[] = $routes;
     }
 
 
 
-    public function driveToRoute($from, $to)
+    public function driveToRoute(string $from,string $to)
     {
-          return "The but is moveing from {$from} to {$to}";
+          return "The Bus is moveing from {$from} to {$to}\n";
     }
 
     public function doMaintenance()
     {
-        return "The bus is doing maintenance and cleaning right now";
+        return "The bus is doing maintenance and cleaning for 10 minutes before continuing to next trip.\n";
+    }
+
+    public function move(): string {
+        $output = '';
+        foreach ($this->getRoutes() as $route) {
+          $output .= 
+          $this->driveToRoute($route->getSource(), $route->getDestination()) 
+          . "with a speed of {$this->getMaxmumSpeed()}\n" 
+          ."The Driver Info: {$this->getDriver()->driverInfo()}, "
+          .$this->doMaintenance() . "\n"
+          ."<hr>";
+        }
+        return $output;
     }
 
 

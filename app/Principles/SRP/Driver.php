@@ -62,6 +62,20 @@ class Driver
     {
         $this->address = $address;
     }
+
+    public function driverInfo(): string
+    {
+        // $data = [
+        //     'name'   => $this->name,
+        //     'age'    => $this->age,
+        //     'insuranceNumber' => $this->insuranceNumber,
+        //     'address' => $this->address
+        // ];
+
+        return "Driver name: {$this->name}, age: {$this->age}, insurance number: {$this->insuranceNumber}, address: {$this->address}";
+
+        
+    }
     
 
 }
