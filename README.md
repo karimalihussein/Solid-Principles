@@ -14,8 +14,67 @@ A class should have one and only one reason to change, meaning that a class shou
 --------------------------------------------------------------
 Open-Closed Principle
 Objects or entities should be open for extension but closed for modification.
-
 This means that a class should be extendable without modifying the class itself.
+
+--------------------------------------------------------------
+Liskov Substitution Principle
+
+Liskov Substitution Principle states:
+
+Let q(x) be a property provable about objects of x of type T. Then q(y) should be provable for objects y of type S where S is a subtype of T.
+
+This means that every subclass or derived class should be substitutable for their base or parent class.
+
+Building off the example AreaCalculator class, consider a new VolumeCalculator class that extends the AreaCalculator class:
+
+for example:
+
+Function F(User $user){
+
+}
+
+Class User{
+
+}
+Class Man extends User{
+
+}
+
+Class Woman extends User{
+
+}
+f = function f
+f(x = man)
+f(y = women)
+S is SubType of User
+
+Preconditions: cannot be strengthened in the subtype = like valdtion on requests .
+Postconditions: cannot be weakened in the subtype = operations on output before extract the results.
+Invariants: must be preserved in the subtype = A set of conditions must be running during call
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
